@@ -1,10 +1,26 @@
 # AIkdemy
 This repository presents a real-world instructional case study designed and developed during my experience as an Instructional Designer &amp; AI Author at Studi. It showcases a complete e-learning lesson focused on iterative development of Artificial Intelligence components, combining pedagogy, UX design, and technical best practices.
 
+### 🔹 Learning Sandbox Design
+
+As part of this project, I was also **responsible for designing and proposing a learning sandbox** to support the course.
+
+The sandbox was conceived as a **safe, exploratory environment** where learners can:
+- experiment with AI iteration strategies without production constraints,
+- test hypotheses and metrics,
+- simulate incremental AI decisions,
+- and observe the impact of each iteration in isolation.
+
+Rather than focusing on performance alone, the sandbox emphasizes:
+- understanding trade-offs,
+- validating assumptions early,
+- and developing technical judgment.
+
+This approach reinforces **active learning**, encourages experimentation, and mirrors real-world AI development workflows, where controlled environments are essential before deployment.
 
 # Demo
 
-https://johntrumanburbank-afk.github.io/aikdemy/
+https://johntrumanburbank-afk.github.io/AIkdemy/
 
 # ITERATIVE AI DEVELOPMENT
 
