@@ -1,0 +1,712 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academy | Iterative AI Development</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Iconify for Lucide Icons -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+            color: #0f172a; /* slate-900 */
+        }
+        
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        /* Range slider styling */
+        input[type=range] {
+            -webkit-appearance: none;
+            background: transparent;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            background: #2563eb;
+            cursor: pointer;
+            margin-top: -6px;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: #e2e8f0;
+            border-radius: 2px;
+        }
+        
+        /* Utility for hiding scrollbar but keeping function */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="h-screen w-screen overflow-hidden flex flex-col bg-slate-50">
+
+    <!-- Header -->
+    <header class="h-14 border-b border-slate-200 bg-white flex items-center justify-between px-4 lg:px-6 shrink-0 z-20 relative">
+        <div class="flex items-center gap-4">
+            <button id="mobile-menu-btn" class="lg:hidden text-slate-500 hover:text-slate-900">
+                <iconify-icon icon="lucide:menu" width="20" stroke-width="1.5"></iconify-icon>
+            </button>
+            <div class="flex items-center gap-2">
+                <div class="w-6 h-6 bg-slate-900 rounded-md flex items-center justify-center text-white font-bold text-xs">A</div>
+                <span class="font-semibold tracking-tight text-sm">ACADEMY</span>
+            </div>
+            <div class="h-4 w-px bg-slate-200 mx-2 hidden md:block"></div>
+            <span class="text-xs font-medium text-slate-500 hidden md:block tracking-tight">Develop iteratively an Artificial Intelligence component</span>
+        </div>
+
+        <div class="flex items-center gap-2 md:w-1/3 justify-center">
+            <div class="relative w-full max-w-xs hidden md:block">
+                <iconify-icon icon="lucide:search" class="absolute left-2.5 top-2 text-slate-400" width="16" stroke-width="1.5"></iconify-icon>
+                <input type="text" placeholder="Search modules..." class="w-full pl-9 pr-3 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-md focus:outline-none focus:ring-1 focus:ring-slate-300 text-slate-600 placeholder-slate-400">
+            </div>
+        </div>
+
+        <div class="flex items-center gap-4">
+            <button class="text-slate-500 hover:text-slate-900">
+                <iconify-icon icon="lucide:bell" width="18" stroke-width="1.5"></iconify-icon>
+            </button>
+            <div class="w-7 h-7 bg-indigo-100 rounded-full border border-indigo-200 flex items-center justify-center text-indigo-700 text-xs font-medium cursor-pointer">
+                JD
+            </div>
+        </div>
+    </header>
+
+    <div class="flex flex-1 overflow-hidden">
+        
+        <!-- Sidebar Navigation -->
+        <aside id="sidebar" class="w-64 bg-slate-50 border-r border-slate-200 flex-col absolute lg:static top-0 bottom-0 left-0 z-10 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 h-full flex">
+            <div class="p-4 border-b border-slate-200/60">
+                <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Course Outline</p>
+                <div class="flex items-center gap-3 mb-2">
+                    <div class="w-8 h-8 rounded bg-white border border-slate-200 shadow-sm flex items-center justify-center text-indigo-600">
+                        <iconify-icon icon="lucide:box" width="16" stroke-width="1.5"></iconify-icon>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-semibold text-slate-900 leading-tight">AI Component Dev</h3>
+                        <p class="text-xs text-slate-500">Studi Method</p>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="flex-1 overflow-y-auto p-2 space-y-0.5">
+                
+                <!-- Item: Video -->
+                <a href="#" class="flex items-center gap-3 px-3 py-2 text-xs font-medium text-slate-600 rounded-md hover:bg-slate-100 group">
+                    <iconify-icon icon="lucide:check-circle-2" class="text-green-500" width="16" stroke-width="1.5"></iconify-icon>
+                    <span class="truncate">Onboarding: The Studi Framework</span>
+                </a>
+
+                <!-- Item: Active Lesson -->
+                <a href="#" class="flex items-center gap-3 px-3 py-2 text-xs font-medium text-indigo-700 bg-white border border-slate-200 shadow-sm rounded-md relative">
+                    <div class="absolute left-0 top-0 bottom-0 w-0.5 bg-indigo-600 rounded-l-md"></div>
+                    <iconify-icon icon="lucide:circle" class="text-indigo-600" width="16" stroke-width="1.5"></iconify-icon>
+                    <span class="truncate">1. Fundamentals of Iteration</span>
+                </a>
+
+                <!-- Item: Locked -->
+                <a href="#" class="flex items-center gap-3 px-3 py-2 text-xs font-medium text-slate-500 rounded-md hover:bg-slate-100 group">
+                    <iconify-icon icon="lucide:circle" class="text-slate-300" width="16" stroke-width="1.5"></iconify-icon>
+                    <span class="truncate">2. Setting up AI Dev Env</span>
+                </a>
+
+                <a href="#" class="flex items-center gap-3 px-3 py-2 text-xs font-medium text-slate-500 rounded-md hover:bg-slate-100 group">
+                    <iconify-icon icon="lucide:circle" class="text-slate-300" width="16" stroke-width="1.5"></iconify-icon>
+                    <span class="truncate">3. Data Prep &amp; Exploration</span>
+                </a>
+
+                <!-- Microlearning -->
+                <div class="ml-7 my-1 pl-2 border-l border-slate-200">
+                    <a href="#" class="flex items-center gap-2 py-1.5 text-xs text-slate-400 hover:text-slate-600">
+                        <iconify-icon icon="lucide:zap" width="12" stroke-width="1.5"></iconify-icon>
+                        Micro: Data Quality Eval
+                    </a>
+                </div>
+
+                <a href="#" class="flex items-center gap-3 px-3 py-2 text-xs font-medium text-slate-400 rounded-md cursor-not-allowed opacity-70">
+                    <iconify-icon icon="lucide:lock" class="text-slate-300" width="14" stroke-width="1.5"></iconify-icon>
+                    <span class="truncate">4. Model Training Basics</span>
+                </a>
+            </nav>
+
+            <div class="p-4 border-t border-slate-200">
+                <div class="flex items-center justify-between mb-1">
+                    <span class="text-xs font-medium text-slate-500">Course Progress</span>
+                    <span class="text-xs font-semibold text-slate-900" id="sidebar-progress-text">15%</span>
+                </div>
+                <div class="w-full bg-slate-200 rounded-full h-1.5">
+                    <div class="bg-indigo-600 h-1.5 rounded-full" style="width: 15%"></div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Layout Area -->
+        <main class="flex-1 overflow-y-auto bg-white flex flex-col xl:flex-row">
+            
+            <!-- Content Column -->
+            <div class="flex-1 max-w-4xl mx-auto w-full p-6 lg:p-10 space-y-10 pb-32">
+                
+                <!-- Header Section -->
+                <section class="space-y-4">
+                    <div class="flex items-center gap-2 text-xs text-indigo-600 font-medium bg-indigo-50 w-fit px-2 py-1 rounded border border-indigo-100">
+                        <iconify-icon icon="lucide:book-open" width="14" stroke-width="1.5"></iconify-icon>
+                        Module 1 • 20 min
+                    </div>
+                    <h1 class="text-3xl lg:text-4xl font-semibold tracking-tight text-slate-900">Fundamentals of iterative development for AI</h1>
+                    <p class="text-slate-600 leading-relaxed text-sm lg:text-base max-w-2xl">
+                        Learn to program AI components starting from specifications, applying quality standards, and iterating through increments rather than building a monolith.
+                    </p>
+                    
+                    <div class="bg-slate-50 rounded-lg p-5 border border-slate-200/60">
+                        <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3 flex items-center gap-2">
+                            <iconify-icon icon="lucide:target" width="14" stroke-width="1.5"></iconify-icon>
+                            Learning Outcomes
+                        </h4>
+                        <ul class="grid sm:grid-cols-2 gap-y-2 gap-x-4">
+                            <li class="flex items-start gap-2 text-sm text-slate-700">
+                                <iconify-icon icon="lucide:check" class="text-green-600 mt-0.5 shrink-0" width="14" stroke-width="1.5"></iconify-icon>
+                                Program an AI component from specs
+                            </li>
+                            <li class="flex items-start gap-2 text-sm text-slate-700">
+                                <iconify-icon icon="lucide:check" class="text-green-600 mt-0.5 shrink-0" width="14" stroke-width="1.5"></iconify-icon>
+                                Implement iterative Train/Validate cycles
+                            </li>
+                            <li class="flex items-start gap-2 text-sm text-slate-700">
+                                <iconify-icon icon="lucide:check" class="text-green-600 mt-0.5 shrink-0" width="14" stroke-width="1.5"></iconify-icon>
+                                Apply ML code quality &amp; security standards
+                            </li>
+                            <li class="flex items-start gap-2 text-sm text-slate-700">
+                                <iconify-icon icon="lucide:check" class="text-green-600 mt-0.5 shrink-0" width="14" stroke-width="1.5"></iconify-icon>
+                                Extend features progressively
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <hr class="border-slate-100">
+
+                <!-- Scenario Section -->
+                <section class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+                    <div class="bg-slate-50 px-6 py-4 border-b border-slate-200 flex items-center gap-3">
+                        <div class="w-8 h-8 bg-blue-100 rounded flex items-center justify-center text-blue-700">
+                            <iconify-icon icon="lucide:building-2" width="16" stroke-width="1.5"></iconify-icon>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-semibold text-slate-900">Real-world Context: Airis Startup</h3>
+                            <p class="text-xs text-slate-500">B2B SaaS Case Study</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-sm text-slate-600 leading-relaxed mb-4">
+                            <span class="font-semibold text-slate-900">The Challenge:</span> Airis is a SaaS startup providing inventory management. Currently, their customers forecast sales manually using spreadsheets. The Product team has requested an "Automated Forecasting" feature.
+                        </p>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            <span class="font-semibold text-slate-900">The Shift:</span> Initially, the dev team wanted to build a massive Deep Learning model. However, the CTO insisted on an <span class="bg-yellow-50 text-yellow-800 px-1 rounded border border-yellow-200">iterative approach</span>: start with a simple statistical baseline, release to a beta group, gather data, and then upgrade to a neural network. This ensures non-regression and data security from Day 1.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Core Concept Blocks -->
+                <section class="space-y-6">
+                    <h2 class="text-xl font-semibold tracking-tight text-slate-900">The Iterative Cycle in AI</h2>
+                    <p class="text-sm text-slate-600">Unlike traditional software where code is deterministic, AI development is experimental. You iterate on both <span class="font-medium text-slate-900">code</span> and <span class="font-medium text-slate-900">data</span>.</p>
+                    
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div class="p-5 rounded-lg border border-slate-200 hover:border-slate-300 transition-colors">
+                            <div class="w-8 h-8 bg-indigo-50 rounded-full flex items-center justify-center text-indigo-600 mb-3">
+                                <iconify-icon icon="lucide:git-branch" width="16" stroke-width="1.5"></iconify-icon>
+                            </div>
+                            <h3 class="text-sm font-semibold text-slate-900 mb-1">1. Increment</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed">Deliver a usable version. Start with a heuristic or linear regression before trying complex Transformers.</p>
+                        </div>
+                        <div class="p-5 rounded-lg border border-slate-200 hover:border-slate-300 transition-colors">
+                            <div class="w-8 h-8 bg-indigo-50 rounded-full flex items-center justify-center text-indigo-600 mb-3">
+                                <iconify-icon icon="lucide:flask-conical" width="16" stroke-width="1.5"></iconify-icon>
+                            </div>
+                            <h3 class="text-sm font-semibold text-slate-900 mb-1">2. Train/Validate</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed">Split data strictly. Train on one set, validate on another. Never leak test data into training.</p>
+                        </div>
+                        <div class="p-5 rounded-lg border border-slate-200 hover:border-slate-300 transition-colors">
+                            <div class="w-8 h-8 bg-indigo-50 rounded-full flex items-center justify-center text-indigo-600 mb-3">
+                                <iconify-icon icon="lucide:shield-check" width="16" stroke-width="1.5"></iconify-icon>
+                            </div>
+                            <h3 class="text-sm font-semibold text-slate-900 mb-1">3. Quality &amp; Security</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed">Implement logging, input validation, and regression tests to ensure the new model isn't worse than the old one.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Interactive Builder -->
+                <section class="bg-slate-900 rounded-xl overflow-hidden shadow-md text-white">
+                    <div class="px-6 py-4 border-b border-slate-700 flex justify-between items-center">
+                        <div class="flex items-center gap-2">
+                            <iconify-icon icon="lucide:terminal" width="18" class="text-blue-400"></iconify-icon>
+                            <span class="font-mono text-sm font-medium">Iteration_Planner_v1.0</span>
+                        </div>
+                        <span class="text-xs text-slate-400 bg-slate-800 px-2 py-0.5 rounded">Interactive</span>
+                    </div>
+                    <div class="p-6 grid lg:grid-cols-2 gap-8">
+                        <div class="space-y-4">
+                            <p class="text-sm text-slate-300 mb-4">Configure the first iteration for a new Airis feature.</p>
+                            
+                            <div>
+                                <label class="block text-xs font-medium text-slate-400 mb-1.5 uppercase tracking-wide">Project Goal</label>
+                                <select id="builder-goal" class="w-full bg-slate-800 border border-slate-600 rounded text-sm text-slate-200 px-3 py-2 focus:ring-1 focus:ring-blue-500 focus:outline-none">
+                                    <option value="forecasting">Sales Forecasting (Regression)</option>
+                                    <option value="classification">Spam Detection (Classification)</option>
+                                    <option value="cv">Product Defect (Computer Vision)</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-medium text-slate-400 mb-1.5 uppercase tracking-wide">First Increment Strategy</label>
+                                <select id="builder-increment" class="w-full bg-slate-800 border border-slate-600 rounded text-sm text-slate-200 px-3 py-2 focus:ring-1 focus:ring-blue-500 focus:outline-none">
+                                    <option value="baseline">Simple Baseline (Heuristic/Average)</option>
+                                    <option value="deep">Complex Deep Learning Model</option>
+                                    <option value="audit">Data Audit Only</option>
+                                </select>
+                            </div>
+
+                            <button onclick="generatePlan()" class="mt-2 w-full bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium py-2 rounded transition-colors flex items-center justify-center gap-2">
+                                <iconify-icon icon="lucide:play" width="14"></iconify-icon>
+                                Generate Roadmap
+                            </button>
+                        </div>
+
+                        <div class="bg-slate-950 rounded border border-slate-800 p-4 font-mono text-xs leading-relaxed overflow-y-auto h-64 relative">
+                            <div id="terminal-output" class="text-slate-400">
+                                &gt; Waiting for configuration...<br>
+                                &gt; Select parameters to generate your iteration plan.
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Knowledge Check (Quiz) -->
+                <section class="space-y-6">
+                    <div class="flex items-center justify-between">
+                        <h2 class="text-xl font-semibold tracking-tight text-slate-900">Knowledge Check</h2>
+                        <span class="text-xs font-medium text-slate-500 bg-slate-100 px-2 py-1 rounded">5 Questions</span>
+                    </div>
+
+                    <div id="quiz-container" class="space-y-6">
+                        <!-- Q1 -->
+                        <div class="p-5 rounded-lg border border-slate-200 bg-white">
+                            <p class="text-sm font-medium text-slate-900 mb-3">1. What is the main advantage of an iterative approach in AI?</p>
+                            <div class="space-y-2">
+                                <label class="flex items-start gap-3 p-2 rounded hover:bg-slate-50 cursor-pointer">
+                                    <input type="radio" name="q1" value="wrong" class="mt-0.5 text-indigo-600 focus:ring-indigo-500">
+                                    <span class="text-sm text-slate-600">It guarantees 100% accuracy on the first try.</span>
+                                </label>
+                                <label class="flex items-start gap-3 p-2 rounded hover:bg-slate-50 cursor-pointer">
+                                    <input type="radio" name="q1" value="correct" class="mt-0.5 text-indigo-600 focus:ring-indigo-500">
+                                    <span class="text-sm text-slate-600">It allows for early validation, risk reduction, and progressive feature extension.</span>
+                                </label>
+                                <label class="flex items-start gap-3 p-2 rounded hover:bg-slate-50 cursor-pointer">
+                                    <input type="radio" name="q1" value="wrong" class="mt-0.5 text-indigo-600 focus:ring-indigo-500">
+                                    <span class="text-sm text-slate-600">It removes the need for testing data.</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Q2 -->
+                        <div class="p-5 rounded-lg border border-slate-200 bg-white">
+                            <p class="text-sm font-medium text-slate-900 mb-3">2. In an iterative cycle, what should happen if a new model performs worse than the baseline?</p>
+                            <div class="space-y-2">
+                                <label class="flex items-start gap-3 p-2 rounded hover:bg-slate-50 cursor-pointer">
+                                    <input type="radio" name="q2" value="wrong" class="mt-0.5 text-indigo-600 focus:ring-indigo-500">
+                                    <span class="text-sm text-slate-600">Deploy it anyway to gather user feedback.</span>
+                                </label>
+                                <label class="flex items-start gap-3 p-2 rounded hover:bg-slate-50 cursor-pointer">
+                                    <input type="radio" name="q2" value="correct" class="mt-0.5 text-indigo-600 focus:ring-indigo-500">
+                                    <span class="text-sm text-slate-600">Rollback or refine; non-regression tests should catch this.</span>
+                                </label>
+                            </div>
+                        </div>
+
+                         <!-- Q3 -->
+                         <div class="p-5 rounded-lg border border-slate-200 bg-white">
+                            <p class="text-sm font-medium text-slate-900 mb-3">3. Which component is critical for AI security standards?</p>
+                            <div class="space-y-2">
+                                <label class="flex items-start gap-3 p-2 rounded hover:bg-slate-50 cursor-pointer">
+                                    <input type="radio" name="q3" value="correct" class="mt-0.5 text-indigo-600 focus:ring-indigo-500">
+                                    <span class="text-sm text-slate-600">Input validation and training data protection.</span>
+                                </label>
+                                <label class="flex items-start gap-3 p-2 rounded hover:bg-slate-50 cursor-pointer">
+                                    <input type="radio" name="q3" value="wrong" class="mt-0.5 text-indigo-600 focus:ring-indigo-500">
+                                    <span class="text-sm text-slate-600">Making the model open source.</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Q4 -->
+                        <div class="p-5 rounded-lg border border-slate-200 bg-white">
+                            <p class="text-sm font-medium text-slate-900 mb-3">4. True or False: You should use all available data for training to maximize performance.</p>
+                            <div class="space-y-2">
+                                <label class="flex items-start gap-3 p-2 rounded hover:bg-slate-50 cursor-pointer">
+                                    <input type="radio" name="q4" value="wrong" class="mt-0.5 text-indigo-600 focus:ring-indigo-500">
+                                    <span class="text-sm text-slate-600">True</span>
+                                </label>
+                                <label class="flex items-start gap-3 p-2 rounded hover:bg-slate-50 cursor-pointer">
+                                    <input type="radio" name="q4" value="correct" class="mt-0.5 text-indigo-600 focus:ring-indigo-500">
+                                    <span class="text-sm text-slate-600">False (Need separate validation/test sets).</span>
+                                </label>
+                            </div>
+                        </div>
+
+                         <!-- Q5 -->
+                         <div class="p-5 rounded-lg border border-slate-200 bg-white">
+                            <p class="text-sm font-medium text-slate-900 mb-3">5. What is a "baseline" in iterative development?</p>
+                            <div class="space-y-2">
+                                <label class="flex items-start gap-3 p-2 rounded hover:bg-slate-50 cursor-pointer">
+                                    <input type="radio" name="q5" value="correct" class="mt-0.5 text-indigo-600 focus:ring-indigo-500">
+                                    <span class="text-sm text-slate-600">A simple model (e.g., average or heuristic) used as a reference point.</span>
+                                </label>
+                                <label class="flex items-start gap-3 p-2 rounded hover:bg-slate-50 cursor-pointer">
+                                    <input type="radio" name="q5" value="wrong" class="mt-0.5 text-indigo-600 focus:ring-indigo-500">
+                                    <span class="text-sm text-slate-600">The final deadline for the project.</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-4">
+                            <button onclick="checkQuiz()" class="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium px-5 py-2 rounded shadow-sm transition-colors">
+                                Submit Answers
+                            </button>
+                            <span id="quiz-result" class="text-sm font-semibold text-slate-900 hidden"></span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Practice Task -->
+                <section class="bg-indigo-50 rounded-xl border border-indigo-100 p-6 lg:p-8">
+                    <h2 class="text-lg font-semibold text-indigo-900 mb-2">Practice: Design a Recommendation System</h2>
+                    <p class="text-sm text-indigo-800 mb-6">
+                        Context: An e-commerce client wants to recommend products to users.
+                        <br>Task: Propose 3 iterations (Goal -&gt; Metric).
+                    </p>
+                    
+                    <div class="space-y-4 mb-6">
+                        <textarea class="w-full h-32 p-3 text-sm border border-indigo-200 rounded focus:ring-2 focus:ring-indigo-500 focus:border-transparent resize-none placeholder-slate-400" placeholder="Iteration 1: Baseline...
+Iteration 2: Collaborative Filtering...
+Iteration 3: Deep Learning..."></textarea>
+                    </div>
+
+                    <div class="space-y-3">
+                        <button onclick="toggleAnswer()" class="text-xs font-semibold text-indigo-700 hover:text-indigo-900 flex items-center gap-1 focus:outline-none">
+                            <iconify-icon id="answer-icon" icon="lucide:chevron-right" width="14"></iconify-icon>
+                            Reveal Suggested Answer
+                        </button>
+                        <div id="suggested-answer" class="hidden text-sm text-slate-700 bg-white p-4 rounded border border-indigo-100 shadow-sm leading-relaxed">
+                            <ul class="list-disc pl-4 space-y-2">
+                                <li><strong>Iteration 1:</strong> Suggest "Most Popular" items. Metric: Click-through rate (CTR). (Validates data pipeline).</li>
+                                <li><strong>Iteration 2:</strong> Collaborative Filtering (User-User). Metric: Conversion Rate. (Personalization increment).</li>
+                                <li><strong>Iteration 3:</strong> Deep Neural Network with metadata. Metric: Revenue per user + Latency check. (Optimization).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Downloadable Resources -->
+                <section class="grid sm:grid-cols-2 gap-4">
+                    <a href="#" class="flex items-center gap-3 p-4 border border-slate-200 rounded-lg hover:border-indigo-300 hover:bg-indigo-50/50 transition-all group">
+                        <div class="w-10 h-10 bg-slate-100 text-slate-500 rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-indigo-600 border border-slate-200">
+                            <iconify-icon icon="lucide:file-text" width="18" stroke-width="1.5"></iconify-icon>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium text-slate-900">Iteration Checklist</p>
+                            <p class="text-xs text-slate-500">PDF • 1.2 MB</p>
+                        </div>
+                    </a>
+                    <a href="#" class="flex items-center gap-3 p-4 border border-slate-200 rounded-lg hover:border-indigo-300 hover:bg-indigo-50/50 transition-all group">
+                        <div class="w-10 h-10 bg-slate-100 text-slate-500 rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-indigo-600 border border-slate-200">
+                            <iconify-icon icon="lucide:git-commit" width="18" stroke-width="1.5"></iconify-icon>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium text-slate-900">Versioning Template</p>
+                            <p class="text-xs text-slate-500">JSON • 12 KB</p>
+                        </div>
+                    </a>
+                </section>
+
+                <!-- Completion Area -->
+                <div class="bg-slate-900 rounded-xl p-8 text-center flex flex-col items-center justify-center space-y-4">
+                    <div class="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center text-green-400 mb-2">
+                        <iconify-icon icon="lucide:trophy" width="24" stroke-width="1.5"></iconify-icon>
+                    </div>
+                    <h3 class="text-white text-lg font-semibold">Ready to move on?</h3>
+                    <p class="text-slate-400 text-sm max-w-md mx-auto">By marking this as complete, you confirm you understand the core principles of iterative AI development.</p>
+                    <button onclick="completeLesson(this)" class="mt-4 bg-white text-slate-900 hover:bg-slate-100 px-6 py-2.5 rounded-full text-sm font-semibold transition-transform active:scale-95 flex items-center gap-2">
+                        <span>Mark Lesson as Complete</span>
+                        <iconify-icon icon="lucide:arrow-right" width="16"></iconify-icon>
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- Right Sticky Panel (Desktop) -->
+            <aside class="hidden xl:block w-80 bg-slate-50 border-l border-slate-200 p-6 overflow-y-auto">
+                <div class="sticky top-6 space-y-8">
+                    
+                    <div>
+                        <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Lesson Progress</h4>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs text-slate-600" id="progress-percent">0% Complete</span>
+                            <span class="text-xs text-slate-400">15 min left</span>
+                        </div>
+                        <div class="w-full bg-slate-200 rounded-full h-2">
+                            <div id="sticky-progress-bar" class="bg-green-500 h-2 rounded-full transition-all duration-500" style="width: 5%"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Success Metrics</h4>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between p-3 bg-white rounded border border-slate-200 shadow-sm">
+                                <span class="text-xs text-slate-600">Quiz Target</span>
+                                <span class="text-xs font-bold text-slate-900">80%</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-white rounded border border-slate-200 shadow-sm">
+                                <span class="text-xs text-slate-600">Support Reduction</span>
+                                <span class="text-xs font-bold text-green-600">-15%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Tracker</h4>
+                        <div class="space-y-2">
+                            <label class="flex items-center gap-2 text-xs text-slate-600 cursor-pointer group">
+                                <div class="w-4 h-4 rounded border border-slate-300 group-hover:border-indigo-500 flex items-center justify-center transition-colors">
+                                    <iconify-icon icon="lucide:check" class="text-white opacity-0 group-hover:opacity-20" width="10"></iconify-icon>
+                                </div>
+                                Understand "Increment"
+                            </label>
+                            <label class="flex items-center gap-2 text-xs text-slate-600 cursor-pointer group">
+                                <div class="w-4 h-4 rounded border border-slate-300 group-hover:border-indigo-500 flex items-center justify-center transition-colors">
+                                    <iconify-icon icon="lucide:check" class="text-white opacity-0 group-hover:opacity-20" width="10"></iconify-icon>
+                                </div>
+                                Know Security Stds
+                            </label>
+                            <label class="flex items-center gap-2 text-xs text-slate-600 cursor-pointer group">
+                                <div class="w-4 h-4 rounded border border-slate-300 group-hover:border-indigo-500 flex items-center justify-center transition-colors">
+                                    <iconify-icon icon="lucide:check" class="text-white opacity-0 group-hover:opacity-20" width="10"></iconify-icon>
+                                </div>
+                                Plan Roadmap
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Help Box -->
+                    <div class="bg-indigo-600 rounded-lg p-4 text-white">
+                        <div class="flex items-center gap-2 mb-2">
+                            <iconify-icon icon="lucide:life-buoy" width="16"></iconify-icon>
+                            <span class="text-xs font-semibold">Need help?</span>
+                        </div>
+                        <p class="text-xs text-indigo-100 leading-relaxed mb-3">Stuck on the practice task? Reach out to the instructor team.</p>
+                        <button class="w-full bg-white/10 hover:bg-white/20 text-xs font-medium py-1.5 rounded transition-colors">Contact Support</button>
+                    </div>
+
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Sidebar Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const sidebar = document.getElementById('sidebar');
+        let isMenuOpen = false;
+
+        mobileBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                sidebar.classList.remove('-translate-x-full');
+            } else {
+                sidebar.classList.add('-translate-x-full');
+            }
+        });
+
+        // Iteration Builder Logic
+        function generatePlan() {
+            const goal = document.getElementById('builder-goal').value;
+            const increment = document.getElementById('builder-increment').value;
+            const output = document.getElementById('terminal-output');
+
+            output.innerHTML = `<span class="text-blue-400">Processing...</span>`;
+
+            setTimeout(() => {
+                let strategy = "";
+                let risk = "";
+                let metric = "";
+
+                // Logic simulation
+                if (increment === 'baseline') {
+                    strategy = "Excellent choice. Establishing a baseline provides a reference point.";
+                    risk = "Low risk. Quick deployment.";
+                } else if (increment === 'deep') {
+                    strategy = "<span class='text-red-400'>Warning:</span> Starting with Deep Learning increases complexity and debugging difficulty.";
+                    risk = "High risk. Not recommended for Iteration 1.";
+                } else {
+                    strategy = "Data Audit is a safe first step, but delivers no feature value yet.";
+                    risk = "Low risk, low value.";
+                }
+
+                if (goal === 'forecasting') metric = "MSE / MAE";
+                if (goal === 'classification') metric = "F1-Score / Precision";
+                if (goal === 'cv') metric = "IoU / Accuracy";
+
+                const roadmap = `
+                    <div class="fade-in space-y-2">
+                        <div class="text-emerald-400 font-bold mb-2">> PLAN GENERATED:</div>
+                        <div><span class="text-slate-500">1. GOAL:</span> <span class="text-slate-200">${goal.toUpperCase()}</span></div>
+                        <div><span class="text-slate-500">2. STRATEGY:</span> <span class="text-slate-200">${strategy}</span></div>
+                        <div><span class="text-slate-500">3. KEY METRIC:</span> <span class="text-blue-300 font-mono">${metric}</span></div>
+                        <div><span class="text-slate-500">4. ANALYSIS:</span> <span class="text-slate-300">${risk}</span></div>
+                        <div class="mt-4 pt-2 border-t border-slate-800 text-slate-500 text-[10px]">Log ID: ${Math.floor(Math.random()*10000)}</div>
+                    </div>
+                `;
+                output.innerHTML = roadmap;
+                updateProgress(30);
+            }, 600);
+        }
+
+        // Quiz Logic
+        function checkQuiz() {
+            const correctAnswers = {
+                q1: 'correct',
+                q2: 'correct',
+                q3: 'correct',
+                q4: 'correct',
+                q5: 'correct'
+            };
+            
+            let score = 0;
+            let total = 5;
+            let answered = 0;
+
+            for (let i = 1; i <= total; i++) {
+                const radios = document.getElementsByName(`q${i}`);
+                let val = null;
+                for (const radio of radios) {
+                    if (radio.checked) val = radio.value;
+                    // Reset styling
+                    radio.parentElement.classList.remove('bg-red-50', 'bg-green-50', 'border-red-200', 'border-green-200', 'border');
+                }
+                
+                if (val) {
+                    answered++;
+                    if (val === correctAnswers[`q${i}`]) {
+                        score++;
+                        // Highlight correct
+                        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                        selected.parentElement.classList.add('bg-green-50', 'border', 'border-green-200');
+                    } else {
+                        // Highlight wrong
+                        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                        selected.parentElement.classList.add('bg-red-50', 'border', 'border-red-200');
+                    }
+                }
+            }
+
+            if (answered < total) {
+                alert("Please answer all questions before submitting.");
+                return;
+            }
+
+            const resultSpan = document.getElementById('quiz-result');
+            resultSpan.classList.remove('hidden');
+            resultSpan.innerText = `Score: ${score} / ${total}`;
+            
+            if (score === total) {
+                resultSpan.classList.add('text-green-600');
+                updateProgress(70);
+            } else {
+                resultSpan.classList.add('text-orange-600');
+            }
+        }
+
+        // Reveal Answer Logic
+        function toggleAnswer() {
+            const el = document.getElementById('suggested-answer');
+            const icon = document.getElementById('answer-icon');
+            
+            if (el.classList.contains('hidden')) {
+                el.classList.remove('hidden');
+                el.classList.add('fade-in');
+                icon.setAttribute('icon', 'lucide:chevron-down');
+                updateProgress(85);
+            } else {
+                el.classList.add('hidden');
+                icon.setAttribute('icon', 'lucide:chevron-right');
+            }
+        }
+
+        // Completion Logic
+        let currentProgress = 5;
+        
+        function updateProgress(val) {
+            if (val > currentProgress) {
+                currentProgress = val;
+                const bar = document.getElementById('sticky-progress-bar');
+                const text = document.getElementById('progress-percent');
+                const sideText = document.getElementById('sidebar-progress-text');
+                
+                bar.style.width = `${currentProgress}%`;
+                text.innerText = `${currentProgress}% Complete`;
+                sideText.innerText = `15%`; // Simulate course level progress
+            }
+        }
+
+        function completeLesson(btn) {
+            updateProgress(100);
+            btn.innerHTML = `<span>Completed</span> <iconify-icon icon="lucide:check" width="16"></iconify-icon>`;
+            btn.classList.remove('bg-white', 'text-slate-900');
+            btn.classList.add('bg-green-500', 'text-white', 'pointer-events-none');
+            
+            // Celebration effect (simple visual cue)
+            const sideText = document.getElementById('sidebar-progress-text');
+            sideText.innerText = `18%`; // Bump course progress
+            sideText.classList.add('text-green-600');
+            
+            alert("Lesson Marked Complete! Redirecting to next lesson...");
+        }
+    </script>
+
+</body></html>
