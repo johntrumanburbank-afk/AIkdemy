@@ -11,7 +11,7 @@ https://johntrumanburbank-afk.github.io/aikdemy/
 > AI is not a finished product.  
 > It is a process of iteration, validation, and responsibility.
 
-![Lesson preview](assets/lesson_preview.png)
+![Lesson preview](assets/AIkdemy_preview.png)
 
 **Iterative AI Development** is an **interactive learning module** designed during my experience as an **Instructional Designer & AI Author at Studi**.
 
